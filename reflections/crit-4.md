@@ -1,0 +1,7 @@
+The main breakthrough in this project came when I realised that asking Claude to redraw the animals was not enough to achieve the style I wanted. I first provided one reference image containing several animals, but the results were still inconsistent. I then separated the animals into eight individual images and asked Claude to use them directly. This made the visual style much clearer and more consistent.
+
+Another important moment came when I tried to adjust the animals’ sizes. Claude initially made the chicks and rabbit too small instead of making the larger animals taller. I found that the smaller animals had been given size limits in the original styling. Once I asked Claude to adjust those limits and use two rows when needed, the layout became clearer and more balanced.
+
+This experience taught me that working with AI is not just about sending instructions repeatedly. I need to understand what I want to build and have a clear plan. It was more effective to create a basic structure first, then improve the details step by step.
+
+I also realised that a good developer needs to think about how people will actually use the final product. This is why I added keyboard controls using keys 1–8. They make it easier to play several notes smoothly. Claude could write the code, but I still needed to judge whether the design was clear, whether the sound worked, and whether the interaction felt natural.
