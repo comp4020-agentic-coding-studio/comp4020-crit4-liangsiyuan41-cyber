@@ -3,17 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4020 prototype</title>
+    <title>Musical Zoo</title>
     <meta
       name="description"
-      content="Replace this with one sentence saying what this page is. A search result and a link preview both show it."
+      content="A colourful zoo scene with eight cute animals, arranged from smallest to largest."
     />
 
-    <!--
-      The link-preview card: public/card.png, 1200x630 --- replace it. The URL
-      resolves against this page, like any link. No og:title/og:description:
-      scrapers fall back to the <title> and description above.
-    -->
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./card.png" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,13 +21,316 @@
         <a href="./">Home</a>
       </nav>
     </header>
-    <main>
-      <h1>COMP4020 prototype</h1>
-      <p data-testid="intro">
-        Replace this with your prototype. This week's brief is on the course website;
-        <code>spec/README.md</code> explains how the checks in this repo relate to it.
-      </p>
+
+    <main class="zoo">
+      <div class="sky" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud cloud--1"></div>
+        <div class="cloud cloud--2"></div>
+        <div class="tree tree--1"></div>
+        <div class="tree tree--2"></div>
+        <div class="tree tree--3"></div>
+        <div class="tree tree--4"></div>
+      </div>
+
+      <div class="grass">
+        <div class="gate" aria-hidden="true">
+          <svg class="gate-arch" viewBox="0 0 800 420" preserveAspectRatio="xMidYMax meet">
+            <path d="M43 400 A357 357 0 0 1 757 400" class="band-outline" />
+            <path d="M43 400 A357 357 0 0 1 757 400" class="band band--1" />
+            <path d="M85 400 A315 315 0 0 1 715 400" class="band-outline" />
+            <path d="M85 400 A315 315 0 0 1 715 400" class="band band--2" />
+            <path d="M127 400 A273 273 0 0 1 673 400" class="band-outline" />
+            <path d="M127 400 A273 273 0 0 1 673 400" class="band band--3" />
+            <path d="M169 400 A231 231 0 0 1 631 400" class="band-outline" />
+            <path d="M169 400 A231 231 0 0 1 631 400" class="band band--4" />
+            <path d="M211 400 A189 189 0 0 1 589 400" class="band-outline" />
+            <path d="M211 400 A189 189 0 0 1 589 400" class="band band--5" />
+            <path d="M253 400 A147 147 0 0 1 547 400" class="band-outline" />
+            <path d="M253 400 A147 147 0 0 1 547 400" class="band band--6" />
+          </svg>
+          <div class="gate-sign">
+            <h1>ZOO</h1>
+          </div>
+        </div>
+
+        <ul class="animal-row">
+          <li class="animal animal--mouse">
+            <svg viewBox="0 0 100 100" role="img" aria-labelledby="mouse-label">
+              <title id="mouse-label">Mouse</title>
+              <defs>
+                <radialGradient id="mouseGrad" cx="35%" cy="28%" r="80%">
+                  <stop offset="0%" stop-color="#ece2da" />
+                  <stop offset="100%" stop-color="#b7a89d" />
+                </radialGradient>
+              </defs>
+              <path d="M82 64 Q98 58 93 42" class="tail-line" />
+              <circle cx="26" cy="22" r="14" class="fur" />
+              <circle cx="74" cy="22" r="14" class="fur" />
+              <circle cx="26" cy="22" r="6.5" class="inner-ear" />
+              <circle cx="74" cy="22" r="6.5" class="inner-ear" />
+              <ellipse cx="50" cy="60" rx="34" ry="30" class="fur-grad" />
+              <ellipse cx="50" cy="74" rx="14" ry="9" class="muzzle" />
+              <circle cx="40" cy="54" r="4.4" class="eye" />
+              <circle cx="60" cy="54" r="4.4" class="eye" />
+              <circle cx="41.6" cy="52.4" r="1.5" class="eye-shine" />
+              <circle cx="61.6" cy="52.4" r="1.5" class="eye-shine" />
+              <circle cx="50" cy="67" r="3" class="nose" />
+              <circle cx="29" cy="64" r="7" class="blush" />
+              <circle cx="71" cy="64" r="7" class="blush" />
+              <line x1="38" y1="70" x2="16" y2="65" class="whisker" />
+              <line x1="38" y1="75" x2="16" y2="76" class="whisker" />
+              <line x1="62" y1="70" x2="84" y2="65" class="whisker" />
+              <line x1="62" y1="75" x2="84" y2="76" class="whisker" />
+              <ellipse cx="40" cy="90" rx="8" ry="5.5" class="foot" />
+              <ellipse cx="60" cy="90" rx="8" ry="5.5" class="foot" />
+            </svg>
+          </li>
+
+          <li class="animal animal--rabbit">
+            <svg viewBox="0 0 100 130" role="img" aria-labelledby="rabbit-label">
+              <title id="rabbit-label">Rabbit</title>
+              <defs>
+                <radialGradient id="rabbitGrad" cx="35%" cy="26%" r="80%">
+                  <stop offset="0%" stop-color="#fffaf3" />
+                  <stop offset="100%" stop-color="#efe1d2" />
+                </radialGradient>
+              </defs>
+              <rect x="24" y="2" width="17" height="58" rx="8.5" class="fur" transform="rotate(-9 32.5 31)" />
+              <rect x="59" y="2" width="17" height="58" rx="8.5" class="fur" transform="rotate(9 67.5 31)" />
+              <rect x="28" y="10" width="9" height="42" rx="4.5" class="inner-ear" transform="rotate(-9 32.5 31)" />
+              <rect x="63" y="10" width="9" height="42" rx="4.5" class="inner-ear" transform="rotate(9 67.5 31)" />
+              <ellipse cx="50" cy="90" rx="35" ry="32" class="fur-grad" />
+              <ellipse cx="50" cy="103" rx="13" ry="9" class="muzzle" />
+              <circle cx="41" cy="84" r="4.4" class="eye" />
+              <circle cx="59" cy="84" r="4.4" class="eye" />
+              <circle cx="42.6" cy="82.4" r="1.5" class="eye-shine" />
+              <circle cx="60.6" cy="82.4" r="1.5" class="eye-shine" />
+              <circle cx="50" cy="94" r="2.8" class="nose" />
+              <rect x="46" y="99" width="8" height="7" rx="2" class="tooth" />
+              <circle cx="28" cy="96" r="8" class="blush" />
+              <circle cx="72" cy="96" r="8" class="blush" />
+              <path d="M50 110 L44 124 L56 124 Z" class="carrot" />
+              <path d="M47 110 L50 102 L53 110 Z" class="leaf" />
+              <ellipse cx="39" cy="119" rx="8" ry="6" class="foot" />
+              <ellipse cx="61" cy="119" rx="8" ry="6" class="foot" />
+            </svg>
+          </li>
+
+          <li class="animal animal--cat">
+            <svg viewBox="0 0 100 105" role="img" aria-labelledby="cat-label">
+              <title id="cat-label">Cat</title>
+              <defs>
+                <radialGradient id="catGrad" cx="35%" cy="26%" r="80%">
+                  <stop offset="0%" stop-color="#f8c07f" />
+                  <stop offset="100%" stop-color="#e8974a" />
+                </radialGradient>
+              </defs>
+              <path d="M76 74 Q94 70 91 50 Q87 62 78 64 Q84 70 76 74 Z" class="fur" />
+              <path d="M20 40 L29 10 L41 34 Z" class="fur" />
+              <path d="M80 40 L71 10 L59 34 Z" class="fur" />
+              <path d="M25 34 L30 18 L37 30 Z" class="inner-ear" />
+              <path d="M75 34 L70 18 L63 30 Z" class="inner-ear" />
+              <ellipse cx="50" cy="60" rx="34" ry="32" class="fur-grad" />
+              <path d="M35 38 Q42 32 49 38" class="stripe" />
+              <path d="M51 38 Q58 32 65 38" class="stripe" />
+              <ellipse cx="50" cy="74" rx="14" ry="9" class="muzzle" />
+              <circle cx="40" cy="56" r="4.6" class="eye" />
+              <circle cx="60" cy="56" r="4.6" class="eye" />
+              <circle cx="41.6" cy="54.3" r="1.5" class="eye-shine" />
+              <circle cx="61.6" cy="54.3" r="1.5" class="eye-shine" />
+              <path d="M46 69 L50 73 L54 69" class="nose" />
+              <path d="M50 73 Q45 78 40 75" class="mouth" />
+              <path d="M50 73 Q55 78 60 75" class="mouth" />
+              <circle cx="27" cy="66" r="7" class="blush" />
+              <circle cx="73" cy="66" r="7" class="blush" />
+              <line x1="37" y1="71" x2="12" y2="66" class="whisker" />
+              <line x1="37" y1="76" x2="12" y2="78" class="whisker" />
+              <line x1="63" y1="71" x2="88" y2="66" class="whisker" />
+              <line x1="63" y1="76" x2="88" y2="78" class="whisker" />
+              <ellipse cx="42" cy="92" rx="9" ry="6.5" class="foot" />
+              <ellipse cx="58" cy="92" rx="9" ry="6.5" class="foot" />
+            </svg>
+          </li>
+
+          <li class="animal animal--dog">
+            <svg viewBox="0 0 110 115" role="img" aria-labelledby="dog-label">
+              <title id="dog-label">Dog</title>
+              <defs>
+                <radialGradient id="dogGrad" cx="35%" cy="26%" r="80%">
+                  <stop offset="0%" stop-color="#f2d3a3" />
+                  <stop offset="100%" stop-color="#d9a565" />
+                </radialGradient>
+              </defs>
+              <path d="M89 40 Q102 32 97 18" class="tail-line" />
+              <ellipse cx="20" cy="54" rx="14" ry="22" class="fur-dark" transform="rotate(-15 20 54)" />
+              <ellipse cx="90" cy="54" rx="14" ry="22" class="fur-dark" transform="rotate(15 90 54)" />
+              <ellipse cx="55" cy="70" rx="37" ry="35" class="fur-grad" />
+              <ellipse cx="55" cy="86" rx="17" ry="12" class="muzzle" />
+              <circle cx="45" cy="64" r="4.6" class="eye" />
+              <circle cx="65" cy="64" r="4.6" class="eye" />
+              <circle cx="46.6" cy="62.3" r="1.5" class="eye-shine" />
+              <circle cx="66.6" cy="62.3" r="1.5" class="eye-shine" />
+              <ellipse cx="55" cy="82" rx="5" ry="3.6" class="nose" />
+              <path d="M55 86 Q50 94 40 90" class="mouth" />
+              <path d="M55 86 Q60 98 68 90 Q64 104 55 98 Z" class="tongue" />
+              <rect x="30" y="96" width="50" height="9" rx="4.5" class="collar" />
+              <circle cx="55" cy="105" r="4" class="tag" />
+              <circle cx="31" cy="78" r="7" class="blush" />
+              <circle cx="79" cy="78" r="7" class="blush" />
+              <ellipse cx="42" cy="107" rx="9" ry="6" class="foot" />
+              <ellipse cx="68" cy="107" rx="9" ry="6" class="foot" />
+            </svg>
+          </li>
+
+          <li class="animal animal--sheep">
+            <svg viewBox="0 0 120 125" role="img" aria-labelledby="sheep-label">
+              <title id="sheep-label">Sheep</title>
+              <defs>
+                <radialGradient id="sheepGrad" cx="35%" cy="26%" r="80%">
+                  <stop offset="0%" stop-color="#5c5563" />
+                  <stop offset="100%" stop-color="#3a3540" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="60" cy="64" rx="43" ry="36" class="wool" />
+              <circle cx="28" cy="40" r="18" class="wool" />
+              <circle cx="92" cy="40" r="18" class="wool" />
+              <circle cx="22" cy="70" r="16" class="wool" />
+              <circle cx="98" cy="70" r="16" class="wool" />
+              <circle cx="42" cy="28" r="16" class="wool" />
+              <circle cx="78" cy="28" r="16" class="wool" />
+              <ellipse cx="42" cy="32" rx="9" ry="13" class="face-grad" transform="rotate(-20 42 32)" />
+              <ellipse cx="78" cy="32" rx="9" ry="13" class="face-grad" transform="rotate(20 78 32)" />
+              <ellipse cx="60" cy="86" rx="21" ry="19" class="face-grad" />
+              <circle cx="51" cy="82" r="3.8" class="eye-light" />
+              <circle cx="69" cy="82" r="3.8" class="eye-light" />
+              <circle cx="51" cy="82" r="1.7" class="eye" />
+              <circle cx="69" cy="82" r="1.7" class="eye" />
+              <circle cx="60" cy="93" r="2.4" class="nose-light" />
+              <path d="M53 96 Q60 101 67 96" class="mouth-light" />
+              <rect x="32" y="112" width="10" height="13" rx="4" class="leg" />
+              <rect x="52" y="116" width="10" height="13" rx="4" class="leg" />
+              <rect x="68" y="116" width="10" height="13" rx="4" class="leg" />
+              <rect x="88" y="112" width="10" height="13" rx="4" class="leg" />
+            </svg>
+          </li>
+
+          <li class="animal animal--tiger">
+            <svg viewBox="0 0 140 135" role="img" aria-labelledby="tiger-label">
+              <title id="tiger-label">Tiger</title>
+              <defs>
+                <radialGradient id="tigerGrad" cx="35%" cy="26%" r="80%">
+                  <stop offset="0%" stop-color="#f7b464" />
+                  <stop offset="100%" stop-color="#e17f2c" />
+                </radialGradient>
+              </defs>
+              <path d="M108 82 Q128 76 125 56 Q120 70 108 72 Q114 78 108 82 Z" class="fur" />
+              <circle cx="35" cy="32" r="17" class="fur" />
+              <circle cx="105" cy="32" r="17" class="fur" />
+              <circle cx="35" cy="34" r="9" class="inner-ear" />
+              <circle cx="105" cy="34" r="9" class="inner-ear" />
+              <ellipse cx="70" cy="76" rx="42" ry="40" class="fur-grad" />
+              <path d="M40 44 Q48 36 58 42" class="tiger-stripe" />
+              <path d="M82 42 Q92 36 100 44" class="tiger-stripe" />
+              <path d="M32 60 Q42 56 50 62" class="tiger-stripe" />
+              <path d="M90 62 Q98 56 108 60" class="tiger-stripe" />
+              <path d="M30 80 Q40 78 46 84" class="tiger-stripe" />
+              <path d="M94 84 Q100 78 110 80" class="tiger-stripe" />
+              <ellipse cx="70" cy="94" rx="19" ry="14" class="muzzle" />
+              <circle cx="57" cy="70" r="5.4" class="eye" />
+              <circle cx="83" cy="70" r="5.4" class="eye" />
+              <circle cx="58.8" cy="68.2" r="1.7" class="eye-shine" />
+              <circle cx="84.8" cy="68.2" r="1.7" class="eye-shine" />
+              <path d="M64 88 L70 93 L76 88" class="nose" />
+              <path d="M70 93 Q64 99 57 95" class="mouth" />
+              <path d="M70 93 Q76 99 83 95" class="mouth" />
+              <circle cx="41" cy="86" r="7.5" class="blush" />
+              <circle cx="99" cy="86" r="7.5" class="blush" />
+              <line x1="51" y1="92" x2="22" y2="86" class="whisker" />
+              <line x1="51" y1="98" x2="22" y2="100" class="whisker" />
+              <line x1="89" y1="92" x2="118" y2="86" class="whisker" />
+              <line x1="89" y1="98" x2="118" y2="100" class="whisker" />
+              <ellipse cx="55" cy="118" rx="10" ry="7" class="foot" />
+              <ellipse cx="85" cy="118" rx="10" ry="7" class="foot" />
+            </svg>
+          </li>
+
+          <li class="animal animal--elephant">
+            <svg viewBox="0 0 160 155" role="img" aria-labelledby="elephant-label">
+              <title id="elephant-label">Elephant</title>
+              <defs>
+                <radialGradient id="elephantGrad" cx="35%" cy="24%" r="80%">
+                  <stop offset="0%" stop-color="#d3dade" />
+                  <stop offset="100%" stop-color="#a4aeb6" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="24" cy="68" rx="27" ry="33" class="fur-grey" />
+              <ellipse cx="136" cy="68" rx="27" ry="33" class="fur-grey" />
+              <ellipse cx="24" cy="68" rx="16" ry="21" class="inner-ear-grey" />
+              <ellipse cx="136" cy="68" rx="16" ry="21" class="inner-ear-grey" />
+              <ellipse cx="80" cy="84" rx="47" ry="43" class="fur-grad-grey" />
+              <path d="M68 110 Q60 142 72 154 Q80 158 78 148 Q72 142 76 124 Q78 114 74 102 Z" class="fur-grey" />
+              <path d="M60 110 L58 120" class="tusk" />
+              <path d="M96 110 L98 120" class="tusk" />
+              <circle cx="65" cy="78" r="4.3" class="eye" />
+              <circle cx="95" cy="78" r="4.3" class="eye" />
+              <circle cx="66.5" cy="76.4" r="1.4" class="eye-shine" />
+              <circle cx="96.5" cy="76.4" r="1.4" class="eye-shine" />
+              <path d="M68 100 Q80 106 92 100" class="mouth" />
+              <circle cx="50" cy="94" r="7.5" class="blush" />
+              <circle cx="110" cy="94" r="7.5" class="blush" />
+              <rect x="44" y="142" width="14" height="16" rx="6" class="fur-grey" />
+              <rect x="66" y="146" width="14" height="16" rx="6" class="fur-grey" />
+              <rect x="86" y="146" width="14" height="16" rx="6" class="fur-grey" />
+              <rect x="106" y="142" width="14" height="16" rx="6" class="fur-grey" />
+            </svg>
+          </li>
+
+          <li class="animal animal--giraffe">
+            <svg viewBox="0 0 100 195" role="img" aria-labelledby="giraffe-label">
+              <title id="giraffe-label">Giraffe</title>
+              <defs>
+                <radialGradient id="giraffeGrad" cx="35%" cy="18%" r="90%">
+                  <stop offset="0%" stop-color="#f3cd8f" />
+                  <stop offset="100%" stop-color="#dda256" />
+                </radialGradient>
+              </defs>
+              <path d="M83 112 Q95 116 93 132 Q89 134 91 126 Q87 120 83 118 Z" class="tail" />
+              <rect x="24" y="154" width="10" height="35" rx="4" class="fur-tan" />
+              <rect x="42" y="158" width="10" height="31" rx="4" class="fur-tan" />
+              <rect x="58" y="158" width="10" height="31" rx="4" class="fur-tan" />
+              <rect x="74" y="154" width="10" height="35" rx="4" class="fur-tan" />
+              <ellipse cx="50" cy="150" rx="31" ry="23" class="fur-grad-tan" />
+              <path d="M42 34 Q34 92 42 152 L58 152 Q52 92 58 34 Z" class="fur-grad-tan" />
+              <ellipse cx="50" cy="26" rx="17" ry="15" class="fur-grad-tan" />
+              <ellipse cx="34" cy="16" rx="6" ry="9" class="inner-ear-tan" />
+              <ellipse cx="66" cy="16" rx="6" ry="9" class="inner-ear-tan" />
+              <line x1="42" y1="10" x2="40" y2="0" class="horn" />
+              <line x1="58" y1="10" x2="60" y2="0" class="horn" />
+              <circle cx="40" cy="-1" r="3.6" class="horn-tip" />
+              <circle cx="60" cy="-1" r="3.6" class="horn-tip" />
+              <ellipse cx="40" cy="62" rx="7" ry="9" class="patch" />
+              <ellipse cx="58" cy="82" rx="7" ry="9" class="patch" />
+              <ellipse cx="42" cy="108" rx="7" ry="9" class="patch" />
+              <ellipse cx="58" cy="134" rx="6" ry="8" class="patch" />
+              <ellipse cx="36" cy="146" rx="6" ry="7" class="patch" />
+              <ellipse cx="64" cy="154" rx="6" ry="7" class="patch" />
+              <ellipse cx="50" cy="34" rx="10" ry="7" class="muzzle" />
+              <path d="M41 18 L38 14" class="lash" />
+              <path d="M59 18 L62 14" class="lash" />
+              <circle cx="43" cy="22" r="3.8" class="eye" />
+              <circle cx="57" cy="22" r="3.8" class="eye" />
+              <circle cx="44.4" cy="20.5" r="1.3" class="eye-shine" />
+              <circle cx="58.4" cy="20.5" r="1.3" class="eye-shine" />
+              <circle cx="46" cy="35" r="1.7" class="nose" />
+              <circle cx="54" cy="35" r="1.7" class="nose" />
+              <path d="M46 39 Q50 42 54 39" class="mouth" />
+            </svg>
+          </li>
+        </ul>
+      </div>
     </main>
+
     <script type="module" src="./main.ts"></script>
   </body>
 </html>
