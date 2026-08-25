@@ -273,19 +273,63 @@ header nav a {
 
 .animal {
   display: flex;
-  flex-direction: column;
   flex: 0 0 auto;
+  min-width: 0;
+}
+
+.animal-trigger {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   gap: clamp(0.15rem, 0.5vw, 0.4rem);
   background: transparent;
-  min-width: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.animal-trigger:focus-visible {
+  outline: 3px solid #2b2118;
+  outline-offset: 4px;
+  border-radius: 0.5rem;
 }
 
 .animal img {
   display: block;
   width: auto;
   max-width: 100%;
+  transform-origin: bottom center;
+}
+
+/* A quick, playful hop on the tapped animal — the sound's visual echo. */
+@keyframes animal-pop {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  35% {
+    transform: scale(1.08) translateY(-6%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animal-trigger.is-playing img {
+  animation: animal-pop 0.35s ease-out;
+}
+
+.animal-trigger.is-playing .animal-note {
+  border-color: #e0524a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animal-trigger.is-playing img {
+    animation: none;
+  }
 }
 
 .animal-note {
@@ -302,6 +346,7 @@ header nav a {
   line-height: 1.3;
   text-align: center;
   white-space: nowrap;
+  transition: border-color 0.15s ease;
 }
 
 /* A rainbow of note-label colours, in scale order, so the eye reads the
