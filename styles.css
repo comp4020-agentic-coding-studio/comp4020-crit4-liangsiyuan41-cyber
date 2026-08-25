@@ -175,8 +175,8 @@ header nav a {
   left: 50%;
   bottom: 1.2rem;
   transform: translateX(-50%);
-  width: min(94vw, 66rem);
-  aspect-ratio: 800 / 420;
+  width: min(96vw, 62rem);
+  aspect-ratio: 800 / 560;
   z-index: 0;
   pointer-events: none;
 }
@@ -188,47 +188,64 @@ header nav a {
   overflow: visible;
 }
 
-.band-outline {
+.arch-outline {
   fill: none;
   stroke: #2b2118;
-  stroke-width: 48;
+  stroke-width: 56;
   stroke-linecap: round;
 }
 
-.band {
+.arch-band {
   fill: none;
-  stroke-width: 42;
+  stroke: #e0864a;
+  stroke-width: 46;
   stroke-linecap: round;
 }
 
-.band--1 {
-  stroke: #ef4444;
+.arch-highlight {
+  fill: none;
+  stroke: #f6c893;
+  stroke-width: 12;
+  stroke-linecap: round;
 }
-.band--2 {
-  stroke: #f97316;
+
+.pillar {
+  fill: #8a5a2e;
+  stroke: #2b2118;
+  stroke-width: 6;
 }
-.band--3 {
-  stroke: #facc15;
+
+.pillar-groove {
+  fill: none;
+  stroke: #6b4423;
+  stroke-width: 5;
+  stroke-linecap: round;
 }
-.band--4 {
-  stroke: #4ade80;
+
+.fence-rail {
+  fill: none;
+  stroke: #8a5a2e;
+  stroke-width: 9;
+  stroke-linecap: round;
 }
-.band--5 {
-  stroke: #38bdf8;
-}
-.band--6 {
-  stroke: #a78bfa;
+
+.fence-post {
+  fill: none;
+  stroke: #6b4423;
+  stroke-width: 12;
+  stroke-linecap: round;
 }
 
 .gate-sign {
   position: absolute;
-  top: 12%;
+  top: 1%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff6e6;
   border: 4px solid #2b2118;
   border-radius: 999px;
   padding: 0.3rem 1.6rem;
+  z-index: 2;
 }
 
 .gate-sign h1 {
@@ -240,323 +257,84 @@ header nav a {
 }
 
 .animal-row {
+  --unit: clamp(0.3rem, 0.73vw, 0.62rem);
   position: relative;
   z-index: 1;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0.4rem;
+  width: 100%;
   display: flex;
+  flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: center;
-  gap: clamp(0.2rem, 1vw, 0.7rem);
-  flex-wrap: wrap;
+  gap: clamp(0.08rem, 0.365vw, 0.32rem);
 }
 
 .animal {
   display: flex;
+  flex: 0 0 auto;
   align-items: flex-end;
   justify-content: center;
   background: transparent;
+  min-width: 0;
 }
 
-.animal svg {
+.animal img {
   display: block;
-  width: 100%;
   height: 100%;
+  width: auto;
+  max-width: 100%;
 }
 
-.animal svg * {
-  stroke: #3a2b22;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.row-break {
+  display: none;
 }
 
-.animal svg .eye,
-.animal svg .nose,
-.animal svg .nose-light,
-.animal svg .horn-tip,
-.animal svg .eye-shine,
-.animal svg .blush,
-.animal svg .eye-light,
-.animal svg .tag,
-.animal svg .tooth,
-.animal svg .leaf {
-  stroke: none;
-}
-
-.animal svg .whisker,
-.animal svg .lash {
-  fill: none;
-  stroke-width: 2;
-}
-
-.animal svg .mouth {
-  fill: none;
-  stroke-width: 2.5;
-}
-
-.animal svg .mouth-light {
-  fill: none;
-  stroke: #2b2118;
-  stroke-width: 2.5;
-}
-
-.animal svg .tail-line {
-  fill: none;
-  stroke-width: 4;
-}
-
-.animal svg .horn {
-  fill: none;
-  stroke: #6b4423;
-  stroke-width: 4;
-}
-
-.animal svg .tusk {
-  fill: none;
-  stroke: #e7ddc8;
-  stroke-width: 4;
-}
-
-.animal svg .eye {
-  fill: #241a15;
-}
-
-.animal svg .eye-shine {
-  fill: #ffffff;
-}
-
-.animal svg .blush {
-  fill: #ffb3c6;
-  opacity: 0.75;
-}
-
-/* sizes, shortest to tallest, stronger presence */
-.animal--mouse {
-  height: 7.2rem;
-  aspect-ratio: 100 / 100;
+/* sizes, shortest to tallest — a much wider spread of multipliers than a
+   plain linear scale, so the jump between animals reads clearly. Widths
+   follow from each image's own aspect ratio, but since the smaller animals
+   also happen to be the visually "wider" images, the row's total width
+   grows more slowly than its height spread as --unit scales. */
+.animal--chick {
+  height: calc(var(--unit) * 4.2);
 }
 .animal--rabbit {
-  height: 9.4rem;
-  aspect-ratio: 100 / 130;
+  height: calc(var(--unit) * 6.4);
 }
 .animal--cat {
-  height: 10.4rem;
-  aspect-ratio: 100 / 105;
+  height: calc(var(--unit) * 8.8);
 }
 .animal--dog {
-  height: 11.6rem;
-  aspect-ratio: 110 / 115;
+  height: calc(var(--unit) * 11.4);
 }
 .animal--sheep {
-  height: 12.6rem;
-  aspect-ratio: 120 / 125;
+  height: calc(var(--unit) * 14.6);
 }
-.animal--tiger {
-  height: 14.8rem;
-  aspect-ratio: 140 / 135;
+.animal--lion {
+  height: calc(var(--unit) * 19.2);
 }
 .animal--elephant {
-  height: 17rem;
-  aspect-ratio: 160 / 155;
+  height: calc(var(--unit) * 26.5);
 }
 .animal--giraffe {
-  height: 21rem;
-  aspect-ratio: 100 / 195;
+  height: calc(var(--unit) * 39);
 }
 
-/* mouse */
-.animal--mouse .fur {
-  fill: #cdbfb6;
-}
-.animal--mouse .fur-grad {
-  fill: url(#mouseGrad);
-}
-.animal--mouse .inner-ear {
-  fill: #ffb3c6;
-}
-.animal--mouse .muzzle {
-  fill: #f3e9e2;
-}
-.animal--mouse .nose {
-  fill: #ff8fa3;
-}
-.animal--mouse .foot {
-  fill: #b3a79d;
-}
-.animal--mouse .tail-line {
-  stroke: #b7a89d;
-}
+/* small screens: two rows of four (1-4, then 5-8), forced with a
+   flex-basis: 100% break element rather than a grid, so the biggest
+   animals can never be squeezed into an equal-width track */
+@media (max-width: 760px) {
+  .animal-row {
+    --unit: clamp(0.2rem, 1vw, 0.65rem);
+    flex-wrap: wrap;
+    row-gap: clamp(0.5rem, 2vw, 0.9rem);
+    gap: clamp(0.08rem, 0.5vw, 0.3rem);
+  }
 
-/* rabbit */
-.animal--rabbit .fur {
-  fill: #fdf6ef;
-}
-.animal--rabbit .fur-grad {
-  fill: url(#rabbitGrad);
-}
-.animal--rabbit .inner-ear {
-  fill: #ffc2d1;
-}
-.animal--rabbit .muzzle {
-  fill: #ffffff;
-}
-.animal--rabbit .nose {
-  fill: #ff8fa3;
-}
-.animal--rabbit .tooth {
-  fill: #ffffff;
-}
-.animal--rabbit .foot {
-  fill: #efe1d2;
-}
-.animal--rabbit .carrot {
-  fill: #f4a94f;
-}
-.animal--rabbit .leaf {
-  fill: #6fae4d;
-}
-
-/* cat */
-.animal--cat .fur {
-  fill: #f2a24a;
-}
-.animal--cat .fur-grad {
-  fill: url(#catGrad);
-}
-.animal--cat .inner-ear {
-  fill: #ffc2d1;
-}
-.animal--cat .muzzle {
-  fill: #fff1de;
-}
-.animal--cat .stripe {
-  fill: none;
-  stroke: #d98530;
-  stroke-width: 4;
-}
-.animal--cat .nose {
-  fill: #ff8fa3;
-  stroke: #3a2b22;
-  stroke-width: 2;
-}
-.animal--cat .foot {
-  fill: #e2953f;
-}
-
-/* dog */
-.animal--dog .fur-dark {
-  fill: #c9975b;
-}
-.animal--dog .fur-grad {
-  fill: url(#dogGrad);
-}
-.animal--dog .muzzle {
-  fill: #fbe9d0;
-}
-.animal--dog .nose {
-  fill: #2b2118;
-}
-.animal--dog .tongue {
-  fill: #ff8fa3;
-}
-.animal--dog .collar {
-  fill: #e0524a;
-}
-.animal--dog .tag {
-  fill: #ffd166;
-}
-.animal--dog .foot {
-  fill: #d3a869;
-}
-.animal--dog .tail-line {
-  stroke: #c9975b;
-}
-
-/* sheep */
-.animal--sheep .wool {
-  fill: #fbfbf8;
-}
-.animal--sheep .face-grad {
-  fill: url(#sheepGrad);
-}
-.animal--sheep .eye-light {
-  fill: #ffffff;
-}
-.animal--sheep .eye {
-  fill: #1c1a20;
-}
-.animal--sheep .nose-light {
-  fill: #7a7482;
-}
-.animal--sheep .leg {
-  fill: #3a3540;
-}
-
-/* tiger */
-.animal--tiger .fur {
-  fill: #f2933a;
-}
-.animal--tiger .fur-grad {
-  fill: url(#tigerGrad);
-}
-.animal--tiger .inner-ear {
-  fill: #fbead0;
-}
-.animal--tiger .muzzle {
-  fill: #fdf1de;
-}
-.animal--tiger .tiger-stripe {
-  fill: none;
-  stroke: #3b2a20;
-  stroke-width: 5;
-}
-.animal--tiger .nose {
-  fill: #ff8fa3;
-  stroke: #3a2b22;
-  stroke-width: 2;
-}
-.animal--tiger .foot {
-  fill: #e2822e;
-}
-
-/* elephant */
-.animal--elephant .fur-grey {
-  fill: #b9c2c9;
-}
-.animal--elephant .fur-grad-grey {
-  fill: url(#elephantGrad);
-}
-.animal--elephant .inner-ear-grey {
-  fill: #9aa4ac;
-}
-.animal--elephant .tusk {
-  stroke: #f0ebdd;
-}
-
-/* giraffe */
-.animal--giraffe .fur-tan {
-  fill: #e8b46a;
-}
-.animal--giraffe .fur-grad-tan {
-  fill: url(#giraffeGrad);
-}
-.animal--giraffe .inner-ear-tan {
-  fill: #cf9a4c;
-}
-.animal--giraffe .muzzle {
-  fill: #f3ddb0;
-}
-.animal--giraffe .patch {
-  fill: #8a5a2e;
-}
-.animal--giraffe .nose {
-  fill: #2b2118;
-}
-.animal--giraffe .horn-tip {
-  fill: #6b4423;
-}
-.animal--giraffe .tail {
-  fill: #8a5a2e;
+  .row-break {
+    display: block;
+    flex-basis: 100%;
+    height: 0;
+  }
 }

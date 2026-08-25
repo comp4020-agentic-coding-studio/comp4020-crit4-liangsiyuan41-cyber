@@ -6,12 +6,12 @@ import { describe, expect, it } from "vitest";
 // This week's spec: an instrument shaped like a zoo. These tests cover the
 // layout contract only — sound and interaction land in a later pass.
 const EXPECTED_ANIMALS = [
-  "mouse",
+  "chick",
   "rabbit",
   "cat",
   "dog",
   "sheep",
-  "tiger",
+  "lion",
   "elephant",
   "giraffe",
 ];
