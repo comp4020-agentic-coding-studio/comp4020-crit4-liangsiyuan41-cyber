@@ -175,7 +175,7 @@ header nav a {
   left: 50%;
   bottom: 1.2rem;
   transform: translateX(-50%);
-  width: min(96vw, 62rem);
+  width: min(73vw, 96rem);
   aspect-ratio: 800 / 560;
   z-index: 0;
   pointer-events: none;
@@ -244,97 +244,173 @@ header nav a {
   background: #fff6e6;
   border: 4px solid #2b2118;
   border-radius: 999px;
-  padding: 0.3rem 1.6rem;
+  padding: 0.3rem 2rem;
+  white-space: nowrap;
   z-index: 2;
 }
 
 .gate-sign h1 {
   margin: 0;
-  font-size: clamp(1.4rem, 4vw, 2.4rem);
-  letter-spacing: 0.15rem;
+  font-size: clamp(1.5rem, 3.6vw, 2.6rem);
+  letter-spacing: 0.1rem;
   color: #e0524a;
   font-family: "Comic Sans MS", "Chalkboard SE", system-ui, sans-serif;
 }
 
 .animal-row {
-  --unit: clamp(0.3rem, 0.73vw, 0.62rem);
   position: relative;
   z-index: 1;
   list-style: none;
   margin: 0;
-  padding: 0 0.4rem;
+  padding: 0 0.35rem;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: center;
-  gap: clamp(0.08rem, 0.365vw, 0.32rem);
+  gap: clamp(0.1rem, 0.3vw, 0.4rem);
 }
 
 .animal {
   display: flex;
+  flex-direction: column;
   flex: 0 0 auto;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.15rem, 0.5vw, 0.4rem);
   background: transparent;
   min-width: 0;
 }
 
 .animal img {
   display: block;
-  height: 100%;
   width: auto;
   max-width: 100%;
+}
+
+.animal-note {
+  display: inline-block;
+  flex: 0 0 auto;
+  font-family: "Comic Sans MS", "Chalkboard SE", system-ui, sans-serif;
+  font-size: clamp(0.6rem, 0.9vw, 0.85rem);
+  font-weight: 700;
+  color: #2b2118;
+  background: #fff6e6;
+  border: 2px solid #2b2118;
+  border-radius: 999px;
+  padding: 0.08rem 0.45rem;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* A rainbow of note-label colours, in scale order, so the eye reads the
+   do-re-mi progression across the row even before it registers the animals.
+   High Do echoes chick's Do in a lighter shade of the same hue. */
+.animal--chick .animal-note {
+  background: #ff8787;
+}
+.animal--rabbit .animal-note {
+  background: #ffb454;
+}
+.animal--cat .animal-note {
+  background: #ffe066;
+}
+.animal--dog .animal-note {
+  background: #8ce99a;
+}
+.animal--sheep .animal-note {
+  background: #74c0fc;
+}
+.animal--lion .animal-note {
+  background: #b197fc;
+}
+.animal--elephant .animal-note {
+  background: #e599f7;
+}
+.animal--giraffe .animal-note {
+  background: #ffa8a8;
 }
 
 .row-break {
   display: none;
 }
 
-/* sizes, shortest to tallest — a much wider spread of multipliers than a
-   plain linear scale, so the jump between animals reads clearly. Widths
-   follow from each image's own aspect ratio, but since the smaller animals
-   also happen to be the visually "wider" images, the row's total width
-   grows more slowly than its height spread as --unit scales. */
-.animal--chick {
-  height: calc(var(--unit) * 4.2);
+/* Each animal has its own height rule — no shared multiplier, and no small
+   clamp range for the front of the row. Chick (>=100px) and rabbit
+   (>=120px) get a real, clearly-visible floor that holds at every desktop
+   width; giraffe is calibrated to land in the 380-420px band. The height
+   *progression* is driven by each animal simply being set taller than the
+   last, not by a shared formula. Because each image keeps its own aspect
+   ratio, taller floors mean wider images too — fitting all eight in one row
+   now needs a wide viewport, hence the 1700px breakpoint below. */
+.animal--chick img {
+  height: clamp(6.25rem, calc(1.7rem + 4.29vw), 8.125rem);
 }
-.animal--rabbit {
-  height: calc(var(--unit) * 6.4);
+.animal--rabbit img {
+  height: clamp(7.625rem, calc(2.46rem + 4.86vw), 9.75rem);
 }
-.animal--cat {
-  height: calc(var(--unit) * 8.8);
+.animal--cat img {
+  height: clamp(9.375rem, calc(3.3rem + 5.71vw), 11.875rem);
 }
-.animal--dog {
-  height: calc(var(--unit) * 11.4);
+.animal--dog img {
+  height: clamp(11.5625rem, calc(3.97rem + 7.14vw), 14.6875rem);
 }
-.animal--sheep {
-  height: calc(var(--unit) * 14.6);
+.animal--sheep img {
+  height: clamp(14.0625rem, calc(4.96rem + 8.57vw), 17.8125rem);
 }
-.animal--lion {
-  height: calc(var(--unit) * 19.2);
+.animal--lion img {
+  height: clamp(16.875rem, calc(7.01rem + 9.29vw), 20.9375rem);
 }
-.animal--elephant {
-  height: calc(var(--unit) * 26.5);
+.animal--elephant img {
+  height: clamp(19.6875rem, calc(12.1rem + 7.14vw), 22.8125rem);
 }
-.animal--giraffe {
-  height: calc(var(--unit) * 39);
+.animal--giraffe img {
+  height: clamp(24.0625rem, calc(19.51rem + 4.29vw), 25.9375rem);
 }
 
-/* small screens: two rows of four (1-4, then 5-8), forced with a
-   flex-basis: 100% break element rather than a grid, so the biggest
-   animals can never be squeezed into an equal-width track */
-@media (max-width: 760px) {
+/* Below 1700px there isn't room for eight animals this size in one row
+   without shrinking the small ones back down, so this splits into two rows
+   of four (1-4, then 5-8), forced with a flex-basis: 100% break element
+   rather than a grid, so the biggest animals can never be squeezed into an
+   equal-width track. Each animal's mobile cap matches its desktop floor
+   above, so sizes don't jump at the breakpoint. */
+@media (max-width: 1700px) {
   .animal-row {
-    --unit: clamp(0.2rem, 1vw, 0.65rem);
     flex-wrap: wrap;
-    row-gap: clamp(0.5rem, 2vw, 0.9rem);
-    gap: clamp(0.08rem, 0.5vw, 0.3rem);
+    row-gap: clamp(0.5rem, 2vw, 1.2rem);
+    gap: clamp(0.03rem, 0.5vw, 0.25rem);
+    padding: 0 0.15rem;
   }
 
   .row-break {
     display: block;
     flex-basis: 100%;
     height: 0;
+  }
+
+  .animal--chick img {
+    height: clamp(2.8125rem, calc(2.02rem + 3.99vw), 6.25rem);
+  }
+  .animal--rabbit img {
+    height: clamp(3.4375rem, calc(2.47rem + 4.86vw), 7.625rem);
+  }
+  .animal--cat img {
+    height: clamp(4.25rem, calc(3.06rem + 5.94vw), 9.375rem);
+  }
+  .animal--dog img {
+    height: clamp(5.3125rem, calc(3.86rem + 7.25vw), 11.5625rem);
+  }
+  .animal--sheep img {
+    height: clamp(3.625rem, calc(1.22rem + 12.03vw), 14.0625rem);
+  }
+  .animal--lion img {
+    height: clamp(4.375rem, calc(1.48rem + 14.49vw), 16.875rem);
+  }
+  .animal--elephant img {
+    height: clamp(5.4375rem, calc(2.13rem + 16.52vw), 19.6875rem);
+  }
+  .animal--giraffe img {
+    height: clamp(6.75rem, calc(2.74rem + 20.07vw), 24.0625rem);
   }
 }

@@ -19,9 +19,9 @@ const EXPECTED_ANIMALS = [
 const doc = new JSDOM(readFileSync(resolve("dist/index.html"), "utf8")).window.document;
 
 describe("musical zoo layout", () => {
-  it("has a ZOO heading", () => {
+  it("has a MUSICAL ZOO heading", () => {
     const heading = doc.querySelector("h1");
-    expect(heading?.textContent?.trim()).toBe("ZOO");
+    expect(heading?.textContent?.trim()).toBe("MUSICAL ZOO");
   });
 
   it("shows all eight animals, shortest to tallest", () => {
